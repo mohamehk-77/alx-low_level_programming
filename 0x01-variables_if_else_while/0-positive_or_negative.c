@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 /**
- * main -  random of number generator
- *
+ * main -  The random of number Generetor
+ * 
  * int n; random Generate
  *
  * Return: (sccuess) 0
