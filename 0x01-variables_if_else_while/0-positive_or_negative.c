@@ -3,7 +3,7 @@
 #include <time.h>
 /**
  * main -  The random of number Generetor
- * 
+ *
  * int n; random Generate
  *
  * Return: (sccuess) 0
