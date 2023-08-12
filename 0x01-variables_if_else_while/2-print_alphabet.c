@@ -1,17 +1,20 @@
 #include <stdio.h>
+
 /**
- * main - program start
+ * main - Entry point
  *
- * while function in charge
+ * program that prints with putchar function
  *
- * Retrun: (scuccss) 0
-*/
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-char ch = 'a'
+char ch = 'a';
 while (ch <= 'z')
+{
 putchar(ch);
 ch++;
+}
 putchar('\n');
 return (0);
 }
