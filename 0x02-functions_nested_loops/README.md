@@ -1,0 +1,1 @@
+that c for c functios and nested loops 
