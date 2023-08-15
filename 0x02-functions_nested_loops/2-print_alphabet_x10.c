@@ -11,6 +11,7 @@ for (puts = 0; puts < 10; puts++)
 {
 for (ch = 'a'; ch <= 'z'; ch++)
 _putchar(ch);
+_putchar('\n');
 }
 _putchar('\n');
 }
