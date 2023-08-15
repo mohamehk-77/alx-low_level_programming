@@ -7,12 +7,12 @@
 */
 int _islower(int c)
 {
-    if (islower(c) || isdigit(c))
-    {
-        return (1);
-    }
-    else
-    {
-        return (0);
-    }
+	if (islower(c) || isdigit(c))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
