@@ -1,8 +1,8 @@
 #include "main.h"
-/**
- * print_most_numbers - print 0 -9 excpt 2 , 4
+/*
+ * prin*t_most_numbers - print 0 -9 excpt 2 , 4
  * use _putchar fanctions
- * Return: Always 0 (success)
+ * Return: Aways 0 (success)
 */
 
 void print_most_numbers(void)
