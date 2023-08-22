@@ -1,23 +1,21 @@
 #include "main.h"
 /**
  * rev_string -  that prints every other character of a string
- * @str: starting point
- * @end: ending point
- * @s: is a string
+ * @s: is a string input
+ * Return: nothing
 */
 void rev_string(char *s)
 {
-	int str = 0;
-	int end = strlen(s) - 1;
+int l, i;
+char temp;
 
-	while (str < end)
-	{
-		char tm = s[star];
+for (l = 0; s[l] != '\0'; ++l)
+;
 
-		s[str] = s[end];
-		s[end] = s[tm];
-		str++;
-		end--;
-	}
-	_putchar('\n');
+for (i = 0; i < l / 2; i++)
+{
+	temp = s[i];
+	s[i] = s[l - 1 - i];
+	s[l - 1 - i] = temp;
+}
 }
