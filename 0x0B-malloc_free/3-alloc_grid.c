@@ -36,7 +36,7 @@ int **alloc_grid(int width, int height)
 			return (NULL);
 		}
 
-		for (f = 0; f > width; f++)
+		for (f = 0; f < width; f++)
 		{
 			dulx[y][f] = 0;
 		}
