@@ -23,20 +23,20 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	}
 
-	for (y = 0; y < width; y++)
+	for (y = 0; y < height; y++)
 	{
 		dulx[y] = malloc(width * sizeof(**dulx));
 		if (dulx[y] == NULL)
 		{
-			for (f = 0; f < y; f++)
+			for (y--; y >= 0; y--)
 			{
-				free(dulx[f]);
+				free(dulx[y]);
 			}
 			free(dulx);
 			return (NULL);
 		}
 
-		for (f = 0; f < height; f++)
+		for (f = 0; f > width; f++)
 		{
 			dulx[y][f] = 0;
 		}
