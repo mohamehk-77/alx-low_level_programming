@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * *_realloc - that reallocates a memory block
- * @*ptr: pointer
+ * @ptr: pointer
  * @new_size: 1
  * @old_size: 2
  * Return: pointer
@@ -23,15 +23,14 @@ if (new_size == old_size)
 }
 if (ptr == NULL)
 {
-  dulx = malloc(new_size);
+dulx = malloc(new_size);
 
+if (dulx == NULL)
+{
+	return (NULL);
+}
 
-  if (dulx == NULL)
-  {
-   return (NULL);
-  }
-
-  return (dulx);
+	return (dulx);
 }
 dulx = malloc(new_size);
 
