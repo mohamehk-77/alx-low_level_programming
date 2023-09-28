@@ -1,30 +1,25 @@
 #include "main.h"
 /**
- * print_binary - that print binary
- * @n: intgers
-*/
+ * print_binary - function
+ * @n: a
+ */
 void print_binary(unsigned long int n)
 {
-	int print = sizeof(n) * 8 - 1;
-	int trans = 0;
-	unsigned long int bit;
+	unsigned long int hamo = n;
+	int momo = 0;
 
-	while (print >= 0)
+	if (n == 0)
 	{
-		bit = (n >> print) & 1;
-		if (bit)
-		{
-			trans = 1;
-			putchar('1');
-		}
-		else if (trans)
-		{
-			putchar('0');
-		}
-		trans--;
+		_putchar('0');
+		return;
 	}
-	if (!trans)
+
+	while ((hamo >>= 1) > 0)
+		momo++;
+
+	while (momo >= 0)
 	{
-		putchar('0');
+		((n >> momo) & 1) ? _putchar('1') : _putchar('0');
+		momo--;
 	}
 }
