@@ -1,45 +1,38 @@
 #include "main.h"
+
 /**
- * read_textfile - Read and display the content of a file
- * @filename: Name of the file to read
- * @letters: Number of bytes to read and display
- * Return: Number of bytes read and displayed, or -1 on failure
+ * read_textfile - function that converts a binary number to an unsigned int
+ * @filename: a
+ * @letters: a
+ * Return: Always 0.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
 	char *buffer;
-	ssize_t bytes_read, bytes_written;
+	ssize_t num_bytes;
+	ssize_t i;
 
 	if (!filename)
 		return (0);
-
-	fd = open(filename, O_RDONLY);
+	fd = open(filename, O_RDONLY, 0777);
 	if (fd == -1)
-		return (-1);
-
-	buffer = malloc(letters);
+		return (0);
+	buffer = malloc(letters * sizeof(char));
 	if (!buffer)
-	{
-		close(fd);
-		return (-1);
-	}
-
-	bytes_read = read(fd, buffer, letters);
-	if (bytes_read == -1)
+		return (0);
+	num_bytes = read(fd, buffer, letters);
+	if (num_bytes == -1)
 	{
 		free(buffer);
-		close(fd);
-		return (-1);
+		return (0);
 	}
-
-	bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
-
+	for (i = 0; i < num_bytes; i++)
+	{
+		write(STDOUT_FILENO, &buffer[i], 1);
+	}
+	if (close(fd) == -1)
+		return (0);
 	free(buffer);
-	close(fd);
-
-	if (bytes_written == -1 || bytes_written != bytes_read)
-		return (-1);
-
-	return (bytes_read);
+	return (num_bytes);
 }
