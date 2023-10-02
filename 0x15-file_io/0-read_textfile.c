@@ -1,38 +1,40 @@
 #include "main.h"
 
 /**
- * read_textfile - function that converts a binary number to an unsigned int
- * @filename: 1
- * @letters: 2
- * Return: Always 0
+ * read_textfile - Read a text file and print to POSIX stdout
+ * @filename: char string of files name
+ * @letters: number of letters to read and print
+ * Return: number of letters read and printed, or 0 if error
  */
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
+	ssize_t rcount, wcount;
 	char *buffer;
-	ssize_t num_bytes;
-	ssize_t i;
 
-	if (!filename)
+	if (filename == NULL)
 		return (0);
-	fd = open(filename, O_RDONLY, 0777);
+
+	fd = open(filename, O_RDWR);
 	if (fd == -1)
 		return (0);
-	buffer = malloc(letters * sizeof(char));
-	if (!buffer)
-		return (0);
-	num_bytes = read(fd, buffer, letters);
-	if (num_bytes == -1)
+
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
 	{
 		free(buffer);
 		return (0);
 	}
-	for (i = 0; i < num_bytes; i++)
-	{
-		write(STDOUT_FILENO, &buffer[i], 1);
-	}
-	if (close(fd) == -1)
+	rcount = read(fd, buffer, letters);
+	if (rcount == -1)
+		return (0);
+
+	wcount = write(STDOUT_FILENO, buffer, rcount);
+	if (wcount == -1 || rcount != wcount)
 		return (0);
 	free(buffer);
-	return (num_bytes);
+
+	close(fd);
+	return (wcount);
 }
