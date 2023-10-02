@@ -1,4 +1,4 @@
-#include "lists.h"
+listint_t *add_nodeint_end(listint_t **head, const int n);listint_t *add_nodeint_end(listint_t **head, const int n);#include "lists.h"
 /**
  * list_len - func
  * @h: pointer
