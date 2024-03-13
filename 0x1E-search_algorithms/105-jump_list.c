@@ -12,47 +12,47 @@
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-    if (!list || size == 0)
-    {
-        return NULL;
-    }
+	if (!list || size == 0)
+	{
+		return (NULL);
+	}
 
-    int jump_step = ceil(sqrt(size)); // Use ceil() for integer jump size
-    listint_t *current = list;
+	int jump_step = ceil(sqrt(size)); // Use ceil() for integer jump size
+	listint_t *current = list;
 
-    while (current && current->n < value)
-    {
-        printf("Value checked at index [%lu] = [%d]\n", current->index, current->n);
-        current = current->next;
-        for (int i = 0; i < jump_step - 1 && current; i++)
-        {
-            current = current->next;
-        }
-    }
+	while (current && current->n < value)
+	{
+		printf("Value checked at index [%lu] = [%d]\n", current->index, current->n);
+		current = current->next;
+		for (int i = 0; i < jump_step - 1 && current; i++)
+		{
+			current = current->next;
+		}
+	}
 
-    if (current && current->n == value)
-    {
-        printf("Value found between indexes [%lu] and [%lu]\n", list->index, current->index);
-        return current;
-    }
-    else
-    {
-        // Linear search within the identified range
-        current = list;
-        while (current && current->n < value)
-        {
-            current = current->next;
-        }
-        if (current && current->n == value)
-        {
-            printf("Value checked at index [%lu] = [%d]\n", current->index, current->n);
-            return current;
-        }
-        else
-        {
-            printf("Value found between indexes [%lu] and [%lu]\n", list->index, current->index);
-        }
-    }
+	if (current && current->n == value)
+	{
+		printf("Value found between indexes [%lu] and [%lu]\n", list->index, current->index);
+		return (current);
+	}
+	else
+	{
+		// Linear search within the identified range
+		current = list;
+		while (current && current->n < value)
+		{
+			current = current->next;
+		}
+		if (current && current->n == value)
+		{
+			printf("Value checked at index [%lu] = [%d]\n", current->index, current->n);
+			return (current);
+		}
+		else
+		{
+			printf("Value found between indexes [%lu] and [%lu]\n", list->index, current->index);
+		}
+	}
 
-    return NULL;
+	return (NULL);
 }
